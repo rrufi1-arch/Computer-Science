@@ -32,4 +32,21 @@ public class Cone {
     public double getHeight() {
         return height;
     }
+
+    @Override
+    public String toString() {
+        return "this is a valid string" + color +
+        "and the cone height is" + height +
+        "and the weight is" + weight +
+        "and the material is" + material +
+        "and the feel is" + feel;
+    }
+
+    public boolean equals(Cone other) {
+        if(this.color.equals(other.color) && this.height == other.height && this.feel.equals(other.feel)
+        && this.weight == other.weight && this.material.equals(other.material)) {
+            return true;
+        }
+        return false;
+    }
 }
