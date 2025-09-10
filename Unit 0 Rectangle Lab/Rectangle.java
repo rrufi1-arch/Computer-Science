@@ -13,8 +13,8 @@ public class Rectangle {
     }
 
     public String toString() {
-        return "The rectangle has a length of " + length + 
-        "and a width of " + width + ". Its area is " + length * width;
+        return "The rectangle has a length of " + length
+            + "and a width of " + width + ". Its area is " + length * width;
     }
 
     public boolean equals(Rectangle other) {
@@ -24,16 +24,34 @@ public class Rectangle {
         return false;
     }
 
-    public int calculateArea() {
+    public int getArea() {
         return this.length * this.width;
     }
 
-    public int calculatePerimeter() {
+    public int getPerimeter() {
         return (2 * this.length) + (2 * this.width);
     }
 
-    public double calculateDiagonal() {
+    public double getDiagonal() {
         return Math.sqrt((this.length * this.length) + (this.width * this.width));
+    }
+
+    public int setLength(int newLength) {
+        this.length = newLength;
+        return this.length;
+    }
+
+    public int setWidth(int newWidth) {
+        this.width = newWidth;
+        return this.width;
+    }
+
+    public int getLength() {
+        return this.length;
+    }
+
+    public int getWidth() {
+        return this.width;
     }
 
 }
