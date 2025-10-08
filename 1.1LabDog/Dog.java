@@ -13,7 +13,7 @@ public class Dog {
         this.age = age;
         this.dogId = dogId;
         this.dogChar = Dog.generateDogChar(this.dogId);
-        this.dogTag = "683a";
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -83,29 +83,29 @@ public class Dog {
         this.stillInFacility = stillInFacility;
     }
 
-    public String generateDogTag() {
-        return Integer.toString(this.dogId) + this.dogChar;
-    }
+    // public String generateDogTag() {
+    //     return Integer.toString(this.dogId) + this.dogChar;
+    // }
 
-    public static char generateDogChar(int dogId) {
-        int hundredsDigit = (int) (dogId / 100);
-        int tenthsDigit = (int) ((dogId / 10) % 10);
-        int onesDigit = (int) (dogId % 10);
-        int combinedIdValue = hundredsDigit + tenthsDigit + onesDigit;
-        return (char) ('F' + (combinedIdValue % 10));
-    }
+    // public static char generateDogChar(int dogId) {
+    //     int hundredsDigit = (int) (dogId / 100);
+    //     int tenthsDigit = (int) ((dogId / 10) % 10);
+    //     int onesDigit = (int) (dogId % 10);
+    //     int combinedIdValue = hundredsDigit + tenthsDigit + onesDigit;
+    //     return (char) ('F' + (combinedIdValue % 10));
+    // }
 
-    public static String pickup(Dog dog, String personName) {
-        if (dog.ownerName == personName) {
-            dog.stillInFacility = false;
-            return dog.name + " has been picked up by their owner " + personName;
-        }
-        return "Unknown owner.";
-    }
+    // public static String pickup(Dog dog, String personName) {
+    //     if (dog.ownerName == personName) {
+    //         dog.stillInFacility = false;
+    //         return dog.name + " has been picked up by their owner " + personName;
+    //     }
+    //     return "Unknown owner.";
+    // }
 
-    public static void checkIn(Dog dog, String personName) {
-        dog.ownerName = personName;
-        dog.stillInFacility = true;
-        }
+    // public static void checkIn(Dog dog, String personName) {
+    //     dog.ownerName = personName;
+    //     dog.stillInFacility = true;
+    //     }
 
 }
