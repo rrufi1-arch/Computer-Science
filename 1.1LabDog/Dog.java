@@ -11,8 +11,8 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = dogId;
-        this.dogChar = Dog.generateDogChar(this.dogId);
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
         this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
@@ -21,7 +21,7 @@ public class Dog {
         this.name = "Bob";
         this.ownerName = "Abracadabra";
         this.age = 67;
-        this.dogId = 455;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
         this.dogChar = 'b';
         this.dogTag = "455b";
         this.stillInFacility = false;
@@ -56,7 +56,11 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        char newChar = PawesomeUtils.generateDogChar(this.dogId);
+        setDogChar(newChar);
+        String newTag = PawesomeUtils.generateDogTag(dogId, newChar);
+        setDogTag(newTag);
     }
 
     public char getDogChar() {
@@ -64,7 +68,8 @@ public class Dog {
     }
 
     public void setDogChar(char dogChar) {
-        this.dogChar = dogChar;
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, dogChar);
+        PawesomeUtils.
     }
 
     public String getDogTag() {

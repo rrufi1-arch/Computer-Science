@@ -12,16 +12,21 @@ public class PawesomeUtils {
     }
 
     public static String pickup(Dog dog, String personName) {
-        if (dog.ownerName == personName) {
-            dog.stillInFacility = false;
-            return dog.name + " has been picked up by their owner " + personName;
+        if (dog.getOwnerName().equals(personName)) {
+            dog.setStillInFacility(false);
+            return dog.getName() + " has been picked up by their owner " + personName;
         }
         return "Unknown owner.";
     }
 
     public static void checkIn(Dog dog, String personName) {
-        dog.ownerName = personName;
-        dog.stillInFacility = true;
+        if (validateDogTag(dog) == false) {
+            System.out.println("Dog was not checked in.");
+        } else {
+            dog.setOwnerName(personName);
+            dog.setStillInFacility(true);
+            System.out.println("Dog was checked in successfully.");
+        }
         }
 
     public static int validateDogId(int dogId) {
@@ -34,11 +39,34 @@ public class PawesomeUtils {
     }
 
     public static boolean validateDogTag(Dog dog) {
-        dogId = dog.getDogId();
+        int dogId = dog.getDogId();
         validateDogId(dogId);
-        dogChar = generateDogChar(dogId);
-        newDogTag = dogId + dogChar;
-        if ()
+        char dogChar = generateDogChar(dogId);
+        String newDogTag = "" + dogId + dogChar;
+        if (newDogTag.equals(dog.getDogTag())) {
+            return true;
+        }
+        return false;
 
+    }
+
+    public static int convertAgeToHumanAge(Dog dog) {
+        if (dog.getAge() == 1) {
+            return 15;
+        } else if (dog.getAge() == 2) {
+            return 24;
+        } else {
+            return 24 + ((dog.getAge() - 2) * 5);
+        }
+    }
+
+    public static int convertAgeToDogYears(int humanYears) {
+        if (humanYears <= 15) {
+            return 1;
+        } else if (humanYears > 15 && humanYears <= 24) {
+            return 2;
+        } else {
+            return 2 + (int) ((humanYears - 24) / 5);
+        }
     }
 }
