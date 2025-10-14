@@ -27,13 +27,12 @@ public class PawesomeUtils {
             dog.setStillInFacility(true);
             System.out.println("Dog was checked in successfully.");
         }
-        }
+    }
 
     public static int validateDogId(int dogId) {
         if (dogId >= 100 && dogId <= 999) {
             return dogId;
-        }
-        else {
+        } else {
             return (int) (Math.random() * (899) + 100);
         }
     }

@@ -69,7 +69,6 @@ public class Dog {
 
     public void setDogChar(char dogChar) {
         this.dogTag = PawesomeUtils.generateDogTag(this.dogId, dogChar);
-        PawesomeUtils.
     }
 
     public String getDogTag() {
