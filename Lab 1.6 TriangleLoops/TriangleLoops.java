@@ -51,7 +51,7 @@ public class TriangleLoops {
                 triangle += "*";
             }
             for (int m = 1; m < ((i * 2) + 2); m++) {
-                if (m <= 0.5*((i * 2) + 2)) {
+                if (m <= 0.5 * ((i * 2) + 2)) {
                     triangle += (char) (m + 64);
                     tempCharValue = (char) (m + 64);
                 } else {
