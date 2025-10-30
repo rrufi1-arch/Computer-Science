@@ -29,7 +29,7 @@ public class PurrfectUtils {
         return (int) Math.random() * (high - low) + low;
     }
 
-    public static String validatecatId(String catId) {
+    public static String validateCatId(String catId) {
         if (Integer.valueOf(catId) >= 1000 && Integer.valueOf(catId) <= 9999) {
             return catId;
         }

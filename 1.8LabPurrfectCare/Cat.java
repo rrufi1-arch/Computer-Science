@@ -10,7 +10,7 @@ public class Cat {
         this.name = name;
         this.ownerName = ownerName;
         this.moodLevel = PurrfectUtils.validateMoodLevel(this.moodLevel);
-        this.catId = PurrfectUtils.validatecatId(this.catId);
+        this.catId = PurrfectUtils.validateCatId(this.catId);
         this.catChar = PurrfectUtils.generateCatChar(this.catId);
         this.isHungry = true;
     }
@@ -116,6 +116,7 @@ public class Cat {
 
     public static void main(String[] args) {
         Cat cat1 = new Cat("KITTYCAT", "Random Dude", 6, "9991");
+        PurrfectUtils.bootUp(cat1);
         PurrfectUtils.pet(cat1);
         for (int i = 0; i < 5; i++) {
             PurrfectUtils.trimClaws(cat1);
