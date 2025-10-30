@@ -1,7 +1,7 @@
 public class PurrfectUtils {
     public static String determineCatMood(Cat cat) {
-        String petting;
-        String mood;
+        String petting = "";
+        String mood = "";
         if (cat.getMoodLevel() > 7) {
             petting = "appreciated";
             mood = "in a great mood.";
@@ -18,8 +18,8 @@ public class PurrfectUtils {
 
     public static char generateCatChar(String catId) {
         char letter = 0;
-        for (int i = 0; i <= catId.length(); i++) {
-            letter += Integer.valueOf(catId.charAt(i));
+        for (int i = 0; i < catId.length(); i++) {
+            letter += Integer.parseInt("" + catId.charAt(i));
         }
         letter = (char) ((letter % 26) + 65);
         return letter;
@@ -30,10 +30,10 @@ public class PurrfectUtils {
     }
 
     public static String validateCatId(String catId) {
-        if (Integer.valueOf(catId) >= 1000 && Integer.valueOf(catId) <= 9999) {
+        if (Integer.parseInt(catId) >= 1000 && Integer.parseInt(catId) <= 9999) {
             return catId;
         }
-        return String.valueOf(generateRandomNumber(1000, 9999));
+        return Integer.toString(generateRandomNumber(1000, 9999));
     }
 
     public static int validateMoodLevel(int moodLevel) {

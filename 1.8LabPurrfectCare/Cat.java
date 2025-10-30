@@ -9,9 +9,9 @@ public class Cat {
     public Cat(String name, String ownerName, int moodLevel, String catId) {
         this.name = name;
         this.ownerName = ownerName;
-        this.moodLevel = PurrfectUtils.validateMoodLevel(this.moodLevel);
-        this.catId = PurrfectUtils.validateCatId(this.catId);
-        this.catChar = PurrfectUtils.generateCatChar(this.catId);
+        this.moodLevel = PurrfectUtils.validateMoodLevel(moodLevel);
+        this.catId = PurrfectUtils.validateCatId(catId);
+        this.catChar = PurrfectUtils.generateCatChar(catId);
         this.isHungry = true;
     }
 
@@ -20,7 +20,7 @@ public class Cat {
         this.ownerName = "frank";
         this.moodLevel = 5;
         this.catId = "3456";
-        this.catChar = PurrfectUtils.generateCatChar(this.catId);
+        this.catChar = PurrfectUtils.generateCatChar(catId);
         this.isHungry = true;
     }
 
@@ -59,13 +59,13 @@ public class Cat {
     }
 
     public void setCatId(String catId) {
-        if (Integer.valueOf(catId) > 9999 || Integer.valueOf(catId) < 1000) {
+        if (Integer.parseInt("" + catId) <= 9999 && Integer.parseInt("" + catId) >= 1000) {
             this.catId = catId;
         }
         else {
             int min = 1000;
             int max = 9999;
-            this.catId = String.valueOf(Math.random() * (max-min) + min);
+            this.catId = Integer.toString((int) (Math.random() * (max-min) + min));
         }
     }
 
@@ -90,8 +90,8 @@ public class Cat {
     }
 
     public String toString() {
-        String mood;
-        String petting;
+        String mood = "";
+        String petting = "";
         if (this.moodLevel > 5) {
             mood = "good";
             petting = "acceptable";
