@@ -1,16 +1,28 @@
 public class LineTester {
     public static void main(String[] args) {
-        // Testing Line 1
-        Line line1 = new Line(5, 4, -17);
-        double slope1 = line1.calculateSlope();
-        System.out.println(slope1);
-        boolean onLine1 = line1.isCoordinateOnLine(5, -2);
-        System.out.println(onLine1);
+        Point p1 = new Point(2, 7);
+        Point p2 = new Point(1, 4);
+        Point p3 = new Point(11, 18);
+        Point p4 = new Point(4, 13);
 
-        Line line2 = new Line(-25, 40, 30);
-        double slope2 = line2.calculateSlope();
+        Line pointLine = new Line(p1, p2);
+
+        double slope1 = pointLine.calculateSlope();
+        double slope2 = pointLine.calculateSlopeFromPoints();
+
+        System.out.println(slope1);
         System.out.println(slope2);
-        boolean onLine2 = line2.isCoordinateOnLine(5, -2);
-        System.out.println(onLine2);
+
+        if (slope1 == slope2) {
+            System.out.println("Slope 1 and 2 are equal.");
+        } else {
+            System.out.println("Slope 1 and 2 are not equal.");
+        }
+
+        System.out.println("Using calculateSlope(): " + pointLine.calculateSlope());
+        System.out.println("Is p1 on the line? " + pointLine.isCoordinateOnLine(p1));
+        System.out.println("Is p2 on the line? " + pointLine.isCoordinateOnLine(p2));
+        System.out.println("Is p3 on the line? " + pointLine.isCoordinateOnLine(p3));
+        System.out.println("Is p4 on the line? " + pointLine.isCoordinateOnLine(p4));
     }
 }
