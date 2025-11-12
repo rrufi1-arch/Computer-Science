@@ -10,11 +10,16 @@ public class NPC {
     }
 
     public void setChoice(String choice) {
-        this.choice = choice.UPDATETHISFUNCTION();
+        choice = choice.toLowerCase();
+        if (RPSGame.validateChoice(choice)) {
+            this.choice = choice;
+        } else {
+            this.choice = RPSGame.generateRandomChoice();
+        }
     }
 
     public String toString() {
-        return "Opponent chose " + this.choice;
+        return "Opponent chose " + this.choice + ".";
     }
     
 }

@@ -12,11 +12,16 @@ public class Player {
         return choice;
     }
     public void setChoice(String choice) {
-        this.choice = choice.THISNEEDSANUPDATE();
+        choice = choice.toLowerCase();
+        if (RPSGame.validateChoice(choice)) {
+            this.choice = choice;
+        } else {
+            this.choice = RPSGame.generateRandomChoice();
+        }
     }
 
     public String toString() {
-        return this.name + " chose " + this.choice;
+        return this.name + " chose " + this.choice + ".";
     }
     
 }
