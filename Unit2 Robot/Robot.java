@@ -5,7 +5,17 @@ public class Robot {
     private boolean isFacingRight;
 
     public Robot(int[] hallwayToClean, int startingPosition) {
+        for (int i = 0; i < hallwayToClean.length; i++) {
+            if (hallwayToClean[i] < 0) {
+                hallwayToClean[i] = 0;
+            }
+        }
         this.hallway = hallwayToClean;
+        if (startingPosition > hallwayToClean.length - 1) {
+            startingPosition = hallwayToClean.length - 1;
+        } else if (startingPosition < 0) {
+            startingPosition = 0;
+        }
         this.position = startingPosition;
         this.isFacingRight = true;
     }
@@ -15,6 +25,11 @@ public class Robot {
     }
 
     public void setHallway(int[] hallway) {
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] < 0) {
+                hallway[i] = 0;
+            }
+        }
         this.hallway = hallway;
     }
 
@@ -23,6 +38,11 @@ public class Robot {
     }
 
     public void setPosition(int position) {
+        if (position > hallway.length - 1) {
+            position = hallway.length - 1;
+        } else if (position < 0) {
+            position = 0;
+        }
         this.position = position;
     }
 
@@ -35,8 +55,8 @@ public class Robot {
     }
 
     public boolean isRobotBlockedByWall() {
-        if (isFacingRight && position == hallway.length - 1 ||
-            isFacingRight == false && position == 0) {
+        if (isFacingRight && position == hallway.length - 1
+            || isFacingRight == false && position == 0) {
             return true;
         }
         return false;
@@ -89,7 +109,7 @@ public class Robot {
 
     public boolean hallIsClear() {
         boolean allZero = true;
-        for (int i = 0; i < hallway.length - 1; i++) {
+        for (int i = 0; i < hallway.length; i++) {
             if (hallway[i] != 0) {
                 allZero = false;
             }
