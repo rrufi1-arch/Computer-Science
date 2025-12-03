@@ -2,10 +2,16 @@ public class Course {
     
     private String courseName;
     private StudentRecord[] enrolledStudents;
+    private int maxEnrollment;
 
     public Course(String courseName, StudentRecord[] enrolledStudents) {
         this.courseName = courseName;
         this.enrolledStudents = enrolledStudents;
+    }
+
+    public Course(String courseName, int maxEnrollment) {
+        this.courseName = courseName;
+        this.maxEnrollment = maxEnrollment;
     }
 
     public String getCourseName() {
@@ -46,6 +52,55 @@ public class Course {
             scores = "";
         }
         return finalString + "\n";
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void enrollStudent(StudentRecord student) {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                enrolledStudents[i] = student;
+                break;
+            }
+        }
+    }
+
+    public boolean dropStudent(StudentRecord student) {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null) {
+                if (enrolledStudents[i].getName().equals(student.getName())) {
+                    enrolledStudents[i] = null;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int countEnrolledStudents() {
+        int counter = 0;
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public void increaseClassSizeBy(int sizeIncrease) {
+        StudentRecord[] newEnrolledStudents = new
+        StudentRecord[enrolledStudents.length + sizeIncrease];
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            newEnrolledStudents[i] = enrolledStudents[i];
+        }
+        enrolledStudents = newEnrolledStudents;
     }
 
     public String findBestStudent() {
