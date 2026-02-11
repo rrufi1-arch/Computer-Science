@@ -1,37 +1,20 @@
 import java.util.ArrayList;
 
-public class RoadRunner {
-    private double weight;
-    private String location;
+public class RoadRunner extends Animal{
     private double legLength;
     private boolean isThirsty;
     private boolean isStalkingPrey;
     private ArrayList<String> familyMembers;
-    private double age;
 
-    public RoadRunner(double weight, String location, double legLength, boolean isThirsty, boolean isStalkingPrey,
-            ArrayList<String> familyMembers, double age) {
-        this.weight = weight;
-        this.location = location;
+    public RoadRunner(double legLength, boolean isThirsty, boolean isStalkingPrey,
+            ArrayList<String> familyMembers) {
+        super(10, 2, "salty dela o doom");
         this.legLength = legLength;
         this.isThirsty = isThirsty;
         this.isStalkingPrey = isStalkingPrey;
         this.familyMembers = familyMembers;
-        this.age = age;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-    public String getLocation() {
-        return location;
-    }
-    public void setLocation(String location) {
-        this.location = location;
-    }
     public double getLegLength() {
         return legLength;
     }
@@ -56,14 +39,8 @@ public class RoadRunner {
     public void setFamilyMembers(ArrayList<String> familyMembers) {
         this.familyMembers = familyMembers;
     }
-    public double getAge() {
-        return age;
-    }
-    public void setAge(double age) {
-        this.age = age;
-    }
 
-    
-
-    
+    public String makeNoise() {
+        return "scree";
+    }
 }

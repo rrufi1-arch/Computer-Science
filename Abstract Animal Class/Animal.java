@@ -53,4 +53,7 @@ public abstract class Animal {
         }
         this.weight -= kg;
     }
+
+    public abstract String makeNoise();
+    
 }
